@@ -10,16 +10,22 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
   const {
     target: { email: { value: val } },
+    target,
   } = e;
   
-  if (val !== '') {
-    array.push(val);
-    const li = createLi(val);
-    container.append(li);
-    form.reset();
-  } else {
-    throw Error();
+  const inputValue = val.trim();
+  if(inputValue) {
+    array.push(inputValue);
   }
+  target.reset();
+  // if (val !== '') {
+  //   array.push(val);
+  //   const li = createLi(val);
+  //   container.append(li);
+  //   form.reset();
+  // } else {
+  //   throw Error();
+  // }
 
   console.dir(array);
 });
